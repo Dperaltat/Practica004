@@ -9,7 +9,7 @@ public class Reseña {
     
     private Usuario usuario;
     private Pelicula pelicula;
-    private String codificacion;
+    private double calificacion;
     private String comentario;
     
 }
