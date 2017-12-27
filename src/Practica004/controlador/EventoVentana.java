@@ -5,10 +5,13 @@
  */
 package Practica004.controlador;
 
+import Practica004.vista.VentanaActor;
 import Practica004.vista.VentanaPrincipal;
+import Practica004.vista.VentanaRol;
 import Practica004.vista.VentanaUsuario;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
 
 /**
  *
@@ -24,7 +27,12 @@ public class EventoVentana implements ActionListener{
     
     @Override
     public void actionPerformed(ActionEvent e){
-        
+        File directorio=new File("C:/carpetaPractica04");
+        System.out.print((directorio.getPath()));
+        if(!directorio.exists())
+        {
+            directorio.mkdir();
+        }
         if (e.getSource().equals(this.VentPri.getMenuItemList().get(0))) 
         {
             System.err.println("Ventana Usuario");
@@ -32,6 +40,21 @@ public class EventoVentana implements ActionListener{
             VenUs.setVisible(true);
             this.VentPri.getEscritorio().add(VenUs);
           
+        }
+        if (e.getSource().equals(this.VentPri.getMenuItemList().get(1))) 
+        {
+            System.err.println("Ventana Actor");
+            VentanaActor VenAc = new VentanaActor(this.VentPri.getGestionDato());
+            VenAc.setVisible(true);
+            this.VentPri.getEscritorio().add(VenAc);
+            
+        }
+        if (e.getSource().equals(this.VentPri.getMenuItemList().get(2))) 
+        {
+            System.err.println("Ventana Rol");
+            VentanaRol VenRol = new VentanaRol(this.VentPri.getGestionDato());
+            VenRol.setVisible(true);
+            this.VentPri.getEscritorio().add(VenRol);
         }
         
     }
