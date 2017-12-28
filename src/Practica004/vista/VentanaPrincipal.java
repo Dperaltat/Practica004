@@ -47,24 +47,29 @@ public class VentanaPrincipal extends JFrame
         
         this.menuList.add(new JMenu("Usuario"));
         this.menuList.add(new JMenu("Caracterisiticas"));
+        this.menuList.add(new JMenu("Reseña"));
         
         this.menuItemList = new  ArrayList<JMenuItem>();
         this.menuItemList.add(new JMenuItem("Agregar Usuario"));
         this.menuItemList.add(new JMenuItem("Agregar Actor"));
         this.menuItemList.add(new JMenuItem("Agregar Rol"));
+        this.menuItemList.add(new JMenuItem("Agregar Reseña"));
         
         this.setContentPane(this.escritorio);
         this.setJMenuBar(barraMenu);
         
         this.barraMenu.add(this.menuList.get(0));
         this.barraMenu.add(this.menuList.get(1));
+        this.barraMenu.add(this.menuList.get(2));
         this.menuList.get(0).add(this.menuItemList.get(0));
         this.menuList.get(1).add(this.menuItemList.get(1));
-    this.menuList.get(1).add(this.menuItemList.get(2));
+        this.menuList.get(1).add(this.menuItemList.get(2));
+        this.menuList.get(2).add(this.menuItemList.get(3));
         
         this.menuItemList.get(0).addActionListener(new EventoVentana(this));
-         this.menuItemList.get(1).addActionListener(new EventoVentana(this));
-          this.menuItemList.get(2).addActionListener(new EventoVentana(this));
+        this.menuItemList.get(1).addActionListener(new EventoVentana(this));
+        this.menuItemList.get(2).addActionListener(new EventoVentana(this));
+        this.menuItemList.get(3).addActionListener(new EventoVentana(this));
           
         
         

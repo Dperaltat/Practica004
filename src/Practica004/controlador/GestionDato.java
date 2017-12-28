@@ -6,6 +6,7 @@
 package Practica004.controlador;
 
 import Practica004.modelo.Actor;
+import Practica004.modelo.Reseña;
 import Practica004.modelo.Rol;
 import Practica004.modelo.Usuario;
 import java.io.File;
@@ -24,15 +25,17 @@ public class GestionDato {
     private List<Usuario> usuarioList;
     private List<Actor> actorList;
     private List<Rol> rolList;
+    private List<Reseña> reseñaList;
 
-    public GestionDato(List<Usuario> usuarioList, List<Actor> actorList, List<Rol> rolList) {
+    public GestionDato(List<Usuario> usuarioList, List<Actor> actorList, List<Rol> rolList, List<Reseña> reseñaList) {
         this.usuarioList = usuarioList;
         this.actorList = actorList;
         this.rolList = rolList;
+        this.reseñaList = reseñaList;
     }
     
 
-
+    
     public List<Usuario> getUsuarioList() {
         return usuarioList;
     }
@@ -56,17 +59,30 @@ public class GestionDato {
     public List<Rol> getRolList() {
         return rolList;
     }
-
-    public void setRolList(List<Rol> rolList) {
+    
+     public void setRolList(List<Rol> rolList) {
         this.rolList = rolList;
     }
-       public boolean addActor(Actor ac) {
+     
+    public List<Reseña> getReseñaList() {
+        return reseñaList;
+    }
+
+    public void setReseñaList(List<Reseña> reseñaList) {
+        this.reseñaList = reseñaList;
+    }
+
+    
+    public boolean addActor(Actor ac) {
         return this.actorList.add(ac);
     }
-          public boolean addRol(Rol rol) {
+    public boolean addRol(Rol rol) {
         return this.rolList.add(rol);
     }
-    
+          
+    public boolean addReseña(Reseña re) {
+        return this.reseñaList.add(re);
+    }
      
           
 

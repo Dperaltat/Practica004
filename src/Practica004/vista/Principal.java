@@ -2,6 +2,7 @@ package Practica004.vista;
 
 import Practica004.controlador.GestionDato;
 import Practica004.modelo.Actor;
+import Practica004.modelo.Reseña;
 import Practica004.modelo.Rol;
 import Practica004.modelo.Usuario;
 import java.util.ArrayList;
@@ -17,8 +18,9 @@ public class Principal
         List<Usuario> usuario = new ArrayList<Usuario>();
         List<Actor> actor = new ArrayList<Actor>();
         List<Rol> rol = new ArrayList<Rol>();
+        List<Reseña> reseña = new ArrayList<Reseña>();
         
-        GestionDato gD = new GestionDato(usuario,actor,rol);
+        GestionDato gD = new GestionDato(usuario,actor,rol,reseña);
         VentanaPrincipal VentPri = new VentanaPrincipal (gD);
         
     }

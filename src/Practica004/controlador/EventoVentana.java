@@ -7,6 +7,7 @@ package Practica004.controlador;
 
 import Practica004.vista.VentanaActor;
 import Practica004.vista.VentanaPrincipal;
+import Practica004.vista.VentanaReseña;
 import Practica004.vista.VentanaRol;
 import Practica004.vista.VentanaUsuario;
 import java.awt.event.ActionEvent;
@@ -55,6 +56,13 @@ public class EventoVentana implements ActionListener{
             VentanaRol VenRol = new VentanaRol(this.VentPri.getGestionDato());
             VenRol.setVisible(true);
             this.VentPri.getEscritorio().add(VenRol);
+        }
+        if (e.getSource().equals(this.VentPri.getMenuItemList().get(3))) 
+        {
+            System.err.println("Ventana Reseña");
+            VentanaReseña ventanaReseña = new VentanaReseña(this.VentPri.getGestionDato());
+            ventanaReseña.setVisible(true);
+            this.VentPri.getEscritorio().add(ventanaReseña);
         }
         
     }
