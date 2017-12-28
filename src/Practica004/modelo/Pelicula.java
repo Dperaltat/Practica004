@@ -8,7 +8,7 @@ import java.io.Serializable;
  *
  * @author Daniel
  */
-public class Pelicula {
+public class Pelicula implements java.io.Serializable{
     
     private String nombre;
     private String genero;
@@ -60,7 +60,7 @@ public class Pelicula {
 
     @Override
     public String toString() {
-        return "Pelicula{" + "nombre=" + nombre + ", genero=" + genero + ", anio=" + anio + ", numEntregas=" + numEntregas + '}';
+        return nombre ;
     }
     
 }

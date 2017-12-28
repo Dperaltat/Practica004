@@ -25,7 +25,6 @@ import javax.swing.table.DefaultTableModel;
 public class VentanaActor extends JInternalFrame
 {
     private GestionDato gestionDato;
-    private JComboBox comboPersona;
     private List<JLabel> etiList;
     private List<JTextField> txtList;
     private List<JButton> botonList;
@@ -42,7 +41,7 @@ public class VentanaActor extends JInternalFrame
         this.gestionDato = gestionDato;
         this.iniciaComponente();
         this.setLocation(170, 50);
-        this.setSize(600, 450);
+        this.setSize(500, 450);
     }
     public void iniciaComponente() 
     {
@@ -50,35 +49,41 @@ public class VentanaActor extends JInternalFrame
         this.txtList= new ArrayList<JTextField>();
         this.botonList= new ArrayList<JButton>();
         JPanel panel = new JPanel(new FlowLayout());
-        this.comboPersona = new JComboBox();
         
-        this.etiList.add(new JLabel("Persona:"));
+        this.etiList.add(new JLabel("Nombre:"));
+        this.etiList.add(new JLabel("Cedula:"));
         this.etiList.add(new JLabel("Nominacion:"));
         this.etiList.add(new JLabel("# Premios"));
         
         this.txtList.add(new JTextField(15));
         this.txtList.add(new JTextField(15));
+         this.txtList.add(new JTextField(15));
+        this.txtList.add(new JTextField(15));
         
         this.botonList.add(new JButton("Guardar"));
         this.botonList.add(new JButton("Limpiar"));
         
-        this.encabezado = new Object[3];               
-        this.encabezado[0] = "Persona";
-        this.encabezado[1] = "Nominacion";
-        this.encabezado[2] = " # Premios";
+        this.encabezado = new Object[4];               
+        this.encabezado[0] = "Nombre";
+        this.encabezado[1] = "Cedula";
+        this.encabezado[2] = "Nominaciones";
+        this.encabezado[3] = "# Premios";
         
-        this.datos = cargaDatosTabla(this.gestionDato.getActorList().size(),3);
+        this.datos = cargaDatosTabla(this.gestionDato.getActorList().size(),4);
         
         this.modeloTabla = new DefaultTableModel(this.datos, this.encabezado);        
         this.tabla = new JTable(this.modeloTabla);
         this.scroll = new JScrollPane(this.tabla);
         
         panel.add(this.etiList.get(0));
-       panel.add(this.comboPersona);
-        panel.add(this.etiList.get(1));
         panel.add(this.txtList.get(0));
-        panel.add(this.etiList.get(2));
+        panel.add(this.etiList.get(1));
         panel.add(this.txtList.get(1));
+        panel.add(this.etiList.get(2));
+        panel.add(this.txtList.get(2));
+        panel.add(this.etiList.get(3));
+        panel.add(this.txtList.get(3));
+        
         panel.add(this.botonList.get(0));
         panel.add(this.botonList.get(1));
         panel.add(this.scroll);
@@ -88,25 +93,15 @@ public class VentanaActor extends JInternalFrame
         
         this.add(panel);
     }
-    
-    public String[] cargaComboPersona() {       
-        return null;
-    /*    String[] retorno = new String[this.gestionDato.getAspiranteList().size()];
-        int i=0;
-        for(Aspirante a: this.gestionDato.getAspiranteList()) {
-            retorno[i] = a.getNombre() + " " + a.getApellido() + " - CI: " + a.getCedula();
-            i++;
-        }
-        return retorno;*/
-    }
     public Object[][] cargaDatosTabla(int m, int n) {
         Object[][] retorno = new Object[m][n];
         int i=0;
         for(Actor e:this.gestionDato.getActorList())
         {
-            retorno[i][0] = e.getNominaciones();
-            retorno[i][1] = e.getPersona();
-            retorno[i][2] = e.getPremios();
+            retorno[i][0] = e.getNombre();
+            retorno[i][1] = e.getCedula();
+            retorno[i][2] = e.getNominaciones();
+            retorno[i][3] = e.getPremios();
             i++;
         }        
         return retorno;
@@ -120,13 +115,7 @@ public class VentanaActor extends JInternalFrame
         this.gestionDato = gestionDato;
     }
 
-    public JComboBox getComboPersona() {
-        return comboPersona;
-    }
-
-    public void setComboPersona(JComboBox comboPersona) {
-        this.comboPersona = comboPersona;
-    }
+    
 
     public List<JLabel> getEtiList() {
         return etiList;

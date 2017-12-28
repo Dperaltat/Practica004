@@ -8,22 +8,32 @@ package Practica004.modelo;
 public class Actor implements java.io.Serializable
 {
     
-    private Persona persona;
+    private String Nombre;
+    private String Cedula;
     private int nominaciones;
     private int premios;
 
-    public Actor(Persona persona, int nominaciones, int premios) {
-        this.persona = persona;
+    public Actor(String Nombre, String Cedula, int nominaciones, int premios) {
+        this.Nombre = Nombre;
+        this.Cedula = Cedula;
         this.nominaciones = nominaciones;
         this.premios = premios;
     }
 
-    public Persona getPersona() {
-        return persona;
+    public String getNombre() {
+        return Nombre;
     }
 
-    public void setPersona(Persona persona) {
-        this.persona = persona;
+    public void setNombre(String Nombre) {
+        this.Nombre = Nombre;
+    }
+
+    public String getCedula() {
+        return Cedula;
+    }
+
+    public void setCedula(String Cedula) {
+        this.Cedula = Cedula;
     }
 
     public int getNominaciones() {
@@ -44,7 +54,10 @@ public class Actor implements java.io.Serializable
 
     @Override
     public String toString() {
-        return "Actor{" + "persona=" + persona + ", nominaciones=" + nominaciones + ", premios=" + premios + '}';
+        return  Nombre ;
     }
+
+   
+
     
 }

@@ -19,6 +19,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -49,17 +50,19 @@ private GestionDato gd;
         if (e.getSource().equals(this.VentActor.getBotonList().get(0))) 
             {
             
-            
+            try{
                 FileOutputStream ae = null;
             try {
-                int nominacion = Integer.parseInt(this.VentActor.getTxtList().get(0).getText());
-                int premios  = Integer.parseInt(this.VentActor.getTxtList().get(1).getText());
-                Actor a = new Actor(null, nominacion, premios);
+                String nombre = this.VentActor.getTxtList().get(0).getText();
+                String cedula = this.VentActor.getTxtList().get(1).getText();
+                int nominacion = Integer.parseInt(this.VentActor.getTxtList().get(2).getText());
+                int premios  = Integer.parseInt(this.VentActor.getTxtList().get(3).getText());
+                Actor a = new Actor(nombre,cedula, nominacion, premios);
                 int i = 0;
                 boolean ban = true;
                 for (Actor ca : this.VentActor.getGestionDato().getActorList()) 
                 {
-                    if(a.getNominaciones() == this.VentActor.getGestionDato().getActorList().get(i).getNominaciones() ) 
+                    if(a.getCedula().equals(this.VentActor.getGestionDato().getActorList().get(i).getCedula()) ) 
                     {
                         ban = false;
                         JDialog d = new JDialog();
@@ -76,12 +79,12 @@ private GestionDato gd;
                 {
                     this.VentActor.getGestionDato().addActor(a);
                 }
-                Object[][] dato = this.VentActor.cargaDatosTabla(this.VentActor.getGestionDato().getActorList().size(), 3);
+                Object[][] dato = this.VentActor.cargaDatosTabla(this.VentActor.getGestionDato().getActorList().size(), 4);
                 this.VentActor.setDatos(dato);
                 this.VentActor.getModeloTabla().setDataVector(this.VentActor.getDatos(), this.VentActor.getEncabezado());
                 
                 
-                ae = new FileOutputStream("C:/carpetaPractica04/DatosActor.txt",true);
+               ae = new FileOutputStream("C:/carpetaPractica04/DatosActor.txt",true);
                 ObjectOutputStream escritura= new ObjectOutputStream(ae);
                 escritura.writeObject(a);
                 escritura.close();
@@ -99,7 +102,12 @@ private GestionDato gd;
                 
 
                 
-                
+            }
+            catch(NullPointerException ae)
+            {
+                 JOptionPane.showMessageDialog(null, "Datos Incorrectos.");
+            }
+                     
             }
         if (e.getSource().equals(this.VentActor.getBotonList().get(1))) 
             {

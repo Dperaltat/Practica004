@@ -9,6 +9,7 @@ package Practica004.vista;
 import Practica004.controlador.EventoRol;
 import Practica004.controlador.GestionDato;
 import Practica004.modelo.Actor;
+import Practica004.modelo.Pelicula;
 import Practica004.modelo.Rol;
 import java.awt.FlowLayout;
 import java.util.ArrayList;
@@ -57,7 +58,7 @@ public class VentanaRol extends JInternalFrame
         this.botonList= new ArrayList<JButton>();
         JPanel panel = new JPanel(new FlowLayout());
         this.comboActor = new JComboBox(this.cargaComboActor());//Falta agregar el combo
-        this.comboPelicula = new JComboBox();
+        this.comboPelicula = new JComboBox(this.cargaComboPelicula());
         
         this.etiList.add(new JLabel("Actor:"));
         this.etiList.add(new JLabel("Papel:"));
@@ -99,31 +100,22 @@ public class VentanaRol extends JInternalFrame
        String[] retorno = new String[this.gestionDato.getActorList().size()];
         int i=0;
         for(Actor a: this.gestionDato.getActorList()) {
-            retorno[i] = "Nominacion = "+a.getNominaciones() ;
+            retorno[i] = a.getNombre() ;
             i++;
         }
         return retorno;
     }
         public String[] cargaComboPelicula() {       
-        return null;
-    /*    String[] retorno = new String[this.gestionDato.getAspiranteList().size()];
+        
+      String[] retorno = new String[this.gestionDato.getPeliculaList().size()];
         int i=0;
-        for(Aspirante a: this.gestionDato.getAspiranteList()) {
-            retorno[i] = a.getNombre() + " " + a.getApellido() + " - CI: " + a.getCedula();
+        for(Pelicula a: this.gestionDato.getPeliculaList()) {
+            retorno[i] = a.getNombre() ;
             i++;
         }
-        return retorno;*/
+        return retorno;
     }
-       public String[] cargaComboPersona() {       
-        return null;
-    /*    String[] retorno = new String[this.gestionDato.getAspiranteList().size()];
-        int i=0;
-        for(Aspirante a: this.gestionDato.getAspiranteList()) {
-            retorno[i] = a.getNombre() + " " + a.getApellido() + " - CI: " + a.getCedula();
-            i++;
-        }
-        return retorno;*/
-    }
+       
     public Object[][] cargaDatosTabla(int m, int n) {
         Object[][] retorno = new Object[m][n];
         int i=0;

@@ -6,6 +6,7 @@
 package Practica004.controlador;
 
 import Practica004.modelo.Actor;
+import Practica004.modelo.Pelicula;
 import Practica004.modelo.Rol;
 import Practica004.vista.VentanaRol;
 import java.awt.event.ActionEvent;
@@ -27,6 +28,7 @@ public class EventoRol implements ActionListener
 {
     private VentanaRol VentRol;
     private Actor actor;
+    private Pelicula pelicula;
 
     public EventoRol(VentanaRol VentRol) {
         this.VentRol = VentRol;
@@ -50,13 +52,17 @@ public class EventoRol implements ActionListener
             try {
                 int numActor = this.VentRol.getComboActor().getSelectedIndex();
                 this.actor = this.VentRol.getGestionDato().getActorList().get(numActor);
+              
+                int numRol = this.VentRol.getComboPelicula().getSelectedIndex();
+                this.pelicula = this.VentRol.getGestionDato().getPeliculaList().get(numRol);
+                
                 String papel = this.VentRol.getTxtList().get(0).getText();
-                Rol r = new Rol(this.actor, papel, null);
+                Rol r = new Rol(this.actor, papel, this.pelicula);
                 int i = 0;
                 boolean ban = true;
                 for (Rol ca : this.VentRol.getGestionDato().getRolList()) 
                 {
-                    if(r.getPapel().equals(this.VentRol.getGestionDato().getRolList().get(i).getPapel()) ) 
+                    if(r.getActor().equals(this.VentRol.getGestionDato().getRolList().get(i).getActor()) && r.getPapel().equals(this.VentRol.getGestionDato().getRolList().get(i).getPapel()) ) 
                     {
                         ban = false;
                         JDialog d = new JDialog();
