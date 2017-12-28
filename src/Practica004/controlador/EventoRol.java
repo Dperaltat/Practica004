@@ -19,6 +19,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -48,6 +49,7 @@ public class EventoRol implements ActionListener
     {
         if (e.getSource().equals(this.VentRol.getBotonList().get(0))) 
             {
+                try{
                 FileOutputStream ae = null;
             try {
                 int numActor = this.VentRol.getComboActor().getSelectedIndex();
@@ -97,7 +99,11 @@ public class EventoRol implements ActionListener
                     Logger.getLogger(EventoRol.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
-         
+                }
+             catch(NullPointerException ae)
+            {
+                 JOptionPane.showMessageDialog(null, "Datos Incorrectos");
+            }
             }
     }
 }
