@@ -19,58 +19,61 @@ import javax.swing.JMenuItem;
  *
  * @author Daniel
  */
-public class VentanaPrincipal extends JFrame
-{
+public class VentanaPrincipal extends JFrame {
+
     private GestionDato gestionDato;
     private JDesktopPane escritorio;
     private JMenuBar barraMenu;
     private java.util.List<JMenu> menuList;
-    private ArrayList<JMenuItem> menuItemList; 
-    
-    public VentanaPrincipal(GestionDato gD) 
-    {
+    private ArrayList<JMenuItem> menuItemList;
+
+    public VentanaPrincipal(GestionDato gD) {
         super("Archivos");
         this.gestionDato = gD;
         this.setSize(800, 600);
-        this.setLocation(500,250);
+        this.setLocation(500, 250);
         this.iniciaComponente();
         this.setDefaultCloseOperation(3);
-        this.setVisible(true);      
+        this.setVisible(true);
     }
-    
-    public void iniciaComponente()
-    {
-        
-        this.escritorio= new JDesktopPane();
-        this.barraMenu= new JMenuBar();
-        this.menuList=new ArrayList<JMenu>();
-        
+
+    public void iniciaComponente() {
+
+        this.escritorio = new JDesktopPane();
+        this.barraMenu = new JMenuBar();
+        this.menuList = new ArrayList<JMenu>();
+
         this.menuList.add(new JMenu("Usuario"));
-        this.menuList.add(new JMenu("Caracterisiticas"));
+        this.menuList.add(new JMenu("Pelicula"));
+        this.menuList.add(new JMenu("Elencos"));
         this.menuList.add(new JMenu("Reseña"));
         
         this.menuItemList = new  ArrayList<JMenuItem>();
         this.menuItemList.add(new JMenuItem("Agregar Usuario"));
+        this.menuItemList.add(new JMenuItem("Agregar Pelicula"));
         this.menuItemList.add(new JMenuItem("Agregar Actor"));
         this.menuItemList.add(new JMenuItem("Agregar Rol"));
         this.menuItemList.add(new JMenuItem("Agregar Reseña"));
         
         this.setContentPane(this.escritorio);
         this.setJMenuBar(barraMenu);
-        
+
         this.barraMenu.add(this.menuList.get(0));
         this.barraMenu.add(this.menuList.get(1));
         this.barraMenu.add(this.menuList.get(2));
+        this.barraMenu.add(this.menuList.get(3));
+        
         this.menuList.get(0).add(this.menuItemList.get(0));
         this.menuList.get(1).add(this.menuItemList.get(1));
-        this.menuList.get(1).add(this.menuItemList.get(2));
+        this.menuList.get(2).add(this.menuItemList.get(2));
         this.menuList.get(2).add(this.menuItemList.get(3));
+        this.menuList.get(3).add(this.menuItemList.get(4));
         
         this.menuItemList.get(0).addActionListener(new EventoVentana(this));
         this.menuItemList.get(1).addActionListener(new EventoVentana(this));
         this.menuItemList.get(2).addActionListener(new EventoVentana(this));
         this.menuItemList.get(3).addActionListener(new EventoVentana(this));
-          
+        this.menuItemList.get(4).addActionListener(new EventoVentana(this));  
         
         
     }
@@ -114,6 +117,5 @@ public class VentanaPrincipal extends JFrame
     public void setMenuItemList(ArrayList<JMenuItem> menuItemList) {
         this.menuItemList = menuItemList;
     }
-    
-    
+
 }

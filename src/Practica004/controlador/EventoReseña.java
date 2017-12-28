@@ -52,7 +52,7 @@ public class EventoReseña implements ActionListener
                 int numu = this.ventanaReseña.getComboUsuario().getSelectedIndex();
                 this.usuario = this.ventanaReseña.getGestionDato().getUsuarioList().get(numu);
                 int nump = this.ventanaReseña.getComboPelicula().getSelectedIndex();
-                //this.pelicula = this.ventanaReseña.getGestionDato().getPeliculaList().get(nump);
+                this.pelicula = this.ventanaReseña.getGestionDato().getPeliculaList().get(nump);
                 int calificacion = Integer.parseInt(this.ventanaReseña.getTxtList().get(2).getText());
                 String comentario = this.ventanaReseña.getTxtList().get(3).getText();
                 
@@ -80,10 +80,10 @@ public class EventoReseña implements ActionListener
                     this.ventanaReseña.getGestionDato().addReseña(r);
                 }
                 
-                /*Object[][] datoReseña = this.ventanaReseña.cargaDatosTabla(this.ventanaReseña.getGestionDato().getReseñaList().size(), 4);
+                Object[][] datoReseña = this.ventanaReseña.cargaDatosTabla(this.ventanaReseña.getGestionDato().getReseñaList().size(), 4);
                 this.ventanaReseña.setDatos(datoReseña);
                 this.ventanaReseña.getModeloTabla().setDataVector(this.ventanaReseña.getDatos(), this.ventanaReseña.getEncabezado());
-                */
+                
                 ae = new FileOutputStream("C:/carpetaPractica04/DatosActor.txt",true);
                 ObjectOutputStream escritura= new ObjectOutputStream(ae);
                 escritura.writeObject(r);

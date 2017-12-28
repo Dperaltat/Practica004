@@ -36,7 +36,7 @@ public class VentanaReseña extends JInternalFrame
     
     public VentanaReseña(GestionDato gestionDato) 
     {
-        super("Venatna Busqeuda",true,true,true,true);
+        super("Ventana Busqeuda",true,true,true,true);
         this.gestionDato = gestionDato;
         this.iniciaComponente();
         this.setLocation(170, 50);
@@ -123,7 +123,7 @@ public class VentanaReseña extends JInternalFrame
         this.botonList = new ArrayList<JButton>();
         JPanel panel = new JPanel(new FlowLayout());
         this.comboUsuario = new JComboBox(this.cargaComboUsuario());
-        //this.comboPelicula = new JComboBox(this.cargaComboPelicula());
+        this.comboPelicula = new JComboBox(this.cargaComboPelicula());
           
         this.etiList.add(new JLabel("Usuario"));
         this.etiList.add(new JLabel("Pelicula"));
@@ -142,7 +142,7 @@ public class VentanaReseña extends JInternalFrame
         this.encabezado[2] = "Calificacion";
         this.encabezado[3] = "Comentario";
         
-        //this.datos = cargaDatosTabla(this.gestionDato.getReseñaList().size(),4);
+        this.datos = cargaDatosTabla(this.gestionDato.getReseñaList().size(),4);
         
         this.modeloTabla = new DefaultTableModel(this.datos, this.encabezado);        
         this.tabla = new JTable(this.modeloTabla);
@@ -178,13 +178,13 @@ public class VentanaReseña extends JInternalFrame
         return retorno;
     }
     
-    /*public String[] cargaComboPelicula() 
+    public String[] cargaComboPelicula() 
     {       
         String[] retorno = new String[this.gestionDato.getPeliculaList().size()];
         int i=0;
         for(Pelicula p: this.gestionDato.getPeliculaList()) 
         {
-            retorno[i] = p.getNombre() + "" + "Genero: " + p.getGenero + "" + "Año: " + p.getAnio;
+            retorno[i] = p.getNombre() + "" + "Genero: " + p.getGenero() + "" + "Año: " + p.getAnio();
             i++;
         }
         return retorno;
@@ -204,5 +204,5 @@ public class VentanaReseña extends JInternalFrame
         }        
         return retorno;
     }
-    */
+    
 }

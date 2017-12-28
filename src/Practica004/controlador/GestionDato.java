@@ -8,6 +8,8 @@ package Practica004.controlador;
 import Practica004.modelo.Actor;
 import Practica004.modelo.Reseña;
 import Practica004.modelo.Rol;
+import Practica004.modelo.Pelicula;
+
 import Practica004.modelo.Usuario;
 import java.io.File;
 import java.io.FileInputStream;
@@ -26,12 +28,15 @@ public class GestionDato {
     private List<Actor> actorList;
     private List<Rol> rolList;
     private List<Reseña> reseñaList;
+    private List<Pelicula> peliculaList;
 
-    public GestionDato(List<Usuario> usuarioList, List<Actor> actorList, List<Rol> rolList, List<Reseña> reseñaList) {
+
+    public GestionDato(List<Usuario> usuarioList, List<Actor> actorList, List<Rol> rolList, List<Reseña> reseñaList, List<Pelicula> peliculaList) {
         this.usuarioList = usuarioList;
         this.actorList = actorList;
         this.rolList = rolList;
         this.reseñaList = reseñaList;
+        this.peliculaList = peliculaList;
     }
     
 
@@ -42,6 +47,14 @@ public class GestionDato {
 
     public void setUsuarioList(List<Usuario> usuarioList) {
         this.usuarioList = usuarioList;
+    }
+
+    public List<Pelicula> getPeliculaList() {
+        return peliculaList;
+    }
+
+    public void setPeliculaList(List<Pelicula> peliculaList) {
+        this.peliculaList = peliculaList;
     }
     
     public boolean addUsuario(Usuario usuario) {
@@ -85,5 +98,10 @@ public class GestionDato {
     }
      
           
+
+
+    public boolean addPelicula(Pelicula pelicula) {
+        return this.peliculaList.add(pelicula);
+    }
 
 }
