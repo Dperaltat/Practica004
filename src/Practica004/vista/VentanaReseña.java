@@ -39,7 +39,6 @@ public class VentanaReseña extends JInternalFrame
         super("Ventana Busqeuda",true,true,true,true);
         this.gestionDato = gestionDato;
         this.iniciaComponente();
-        this.setLocation(170, 50);
         this.setSize(625, 550);              
     }
 

@@ -44,17 +44,17 @@ public class EventoReseña implements ActionListener
     public void actionPerformed(ActionEvent e) 
     {
     
-        FileOutputStream ae = null;
-        if (e.getSource().equals(this.ventanaReseña.getBotonList().get(0))) 
+        try
         {
-            try
+            if (e.getSource().equals(this.ventanaReseña.getBotonList().get(0))) 
             {
+            
                 int numu = this.ventanaReseña.getComboUsuario().getSelectedIndex();
                 this.usuario = this.ventanaReseña.getGestionDato().getUsuarioList().get(numu);
                 int nump = this.ventanaReseña.getComboPelicula().getSelectedIndex();
                 this.pelicula = this.ventanaReseña.getGestionDato().getPeliculaList().get(nump);
-                int calificacion = Integer.parseInt(this.ventanaReseña.getTxtList().get(2).getText());
-                String comentario = this.ventanaReseña.getTxtList().get(3).getText();
+                int calificacion = Integer.parseInt(this.ventanaReseña.getTxtList().get(0).getText());
+                String comentario = this.ventanaReseña.getTxtList().get(1).getText();
                 
                 Reseña r = new Reseña(this.usuario, this.pelicula, calificacion,comentario);
                 
@@ -83,40 +83,37 @@ public class EventoReseña implements ActionListener
                 Object[][] datoReseña = this.ventanaReseña.cargaDatosTabla(this.ventanaReseña.getGestionDato().getReseñaList().size(), 4);
                 this.ventanaReseña.setDatos(datoReseña);
                 this.ventanaReseña.getModeloTabla().setDataVector(this.ventanaReseña.getDatos(), this.ventanaReseña.getEncabezado());
-                
-                ae = new FileOutputStream("C:/carpetaPractica04/DatosActor.txt",true);
-                ObjectOutputStream escritura= new ObjectOutputStream(ae);
-                escritura.writeObject(r);
-                escritura.close();  
-            }       
-            catch (FileNotFoundException ex) 
-            {
-                Logger.getLogger(EventoReseña.class.getName()).log(Level.SEVERE, null, ex);
-            } 
-            catch (IOException ex) 
-            {
-                Logger.getLogger(EventoReseña.class.getName()).log(Level.SEVERE, null, ex);
+                  
             }
-            finally 
+            else  if (e.getSource().equals(this.ventanaReseña.getBotonList().get(1))) 
             {
-                try 
-                {
-                ae.close();
-                }    
-                catch (IOException ex) 
-                {
-                    Logger.getLogger(EventoReseña.class.getName()).log(Level.SEVERE, null, ex);
-                }
-            }
-        }
-        if (e.getSource().equals(this.ventanaReseña.getBotonList().get(1))) 
-        {
                 this.ventanaReseña.getTxtList().get(0).setText("");
                 this.ventanaReseña.getTxtList().get(1).setText("");
                 this.ventanaReseña.getTxtList().get(2).setText("");
                 this.ventanaReseña.getTxtList().get(3).setText("");
+            }
+        }    
+        catch (NumberFormatException ae1) 
+        {
+            JDialog d = new JDialog();
+            d.setTitle("Error");
+            d.getContentPane().add(new JLabel("Casilleros incorrectos"));
+            d.setSize(120, 100);
+            d.setLocation(830, 400);
+            d.setVisible(true);
+        } 
+        catch (ArrayIndexOutOfBoundsException ae2) 
+        {
+            JDialog d = new JDialog();
+            d.setTitle("Error");
+            d.getContentPane().add(new JLabel("NO se han encontrado USUARIOS o PELICULAS"));
+            d.setSize(320, 100);
+            d.setLocation(830, 400);
+            d.setVisible(true);
         }
+            
     }
-}
+       
+ }
         
     
