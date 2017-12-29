@@ -13,10 +13,10 @@ import java.io.IOException;
 import java.io.ObjectOutputStream;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.persistence.EntityManager;
+/*import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
-import javax.swing.JDialog;
+*/import javax.swing.JDialog;
 import javax.swing.JLabel;
 
 public class EventoReseña implements ActionListener
@@ -25,7 +25,7 @@ public class EventoReseña implements ActionListener
     private Usuario usuario;
     private Pelicula pelicula;
     private GestionDato gd;
-    private EntityManagerFactory emf = Persistence.createEntityManagerFactory("Practica004PU");
+   //private EntityManagerFactory emf = Persistence.createEntityManagerFactory("Practica004PU");
     
     public EventoReseña(VentanaReseña ventanaReseña) {
         this.ventanaReseña = ventanaReseña;
@@ -43,13 +43,13 @@ public class EventoReseña implements ActionListener
     public void setGd(GestionDato gd) {
         this.gd = gd;
     }
-    public EntityManagerFactory getEmf() {
+    /*public EntityManagerFactory getEmf() {
         return emf;
     }
     public void setEmf(EntityManagerFactory emf) {
         this.emf = emf;
     }
-    
+    */
     
     @Override
     public void actionPerformed(ActionEvent e) 

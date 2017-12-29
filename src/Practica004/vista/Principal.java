@@ -23,8 +23,7 @@ public class Principal
         List<Pelicula> pelicula = new ArrayList<Pelicula>();
         
         GestionDato gD = new GestionDato(usuario,actor,rol,reseña, pelicula);
-
-        
+      
         VentanaPrincipal VentPri = new VentanaPrincipal (gD);
         
     }
