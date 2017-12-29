@@ -1,13 +1,17 @@
 
 package Practica004.modelo;
 
+import java.io.Serializable;
+import javax.persistence.Entity;
+import javax.persistence.Id;
 /**
  *
  * @author Daniel
  */
+@Entity
 public class Reseña implements java.io.Serializable
 {
-    
+    @Id
     private Usuario usuario;
     private Pelicula pelicula;
     private int calificacion;
@@ -49,8 +53,5 @@ public class Reseña implements java.io.Serializable
     public String toString() 
     {
         return "Rese\u00f1a{" + "usuario=" + usuario + ", pelicula=" + pelicula + ", calificacion=" + calificacion + ", comentario=" + comentario + '}';
-    }
-    
-    
-    
+    } 
 }
