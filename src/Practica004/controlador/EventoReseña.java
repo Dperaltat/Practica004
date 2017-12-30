@@ -18,7 +18,8 @@ import java.util.logging.Logger;
 /*import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
-*/import javax.swing.JDialog;
+*/
+import javax.swing.JDialog;
 import javax.swing.JLabel;
 
 public class EventoReseña implements ActionListener
@@ -101,32 +102,6 @@ public class EventoReseña implements ActionListener
                 Object[][] datoReseña = this.ventanaReseña.cargaDatosTabla(this.ventanaReseña.getGestionDato().getReseñaList().size(), 4);
                 this.ventanaReseña.setDatos(datoReseña);
                 this.ventanaReseña.getModeloTabla().setDataVector(this.ventanaReseña.getDatos(), this.ventanaReseña.getEncabezado());
-                
-                File ficheroReseña = new File("C:\\carpetaPractica04\\Reseña.txt");
-                
-                if (ficheroReseña.exists() == false)
-                {
-                    try 
-                    {
-                        ficheroReseña.createNewFile();
-
-                    } 
-                    catch(Exception ae) 
-                    {
-                        ae.printStackTrace();
-                    }                              
-                }
-                try
-                {
-                    FileOutputStream ae = new FileOutputStream("C:\\carpetaPractica04\\Reseña.txt",true);
-                    ObjectOutputStream ob = new ObjectOutputStream(ae);
-                    ob.writeObject(r);
-                    ob.close();
-                }
-                catch (IOException ex) 
-                {
-                    Logger.getLogger(EventoReseña.class.getName()).log(Level.SEVERE, null, ex);
-                }
                 
             }
             else  if (e.getSource().equals(this.ventanaReseña.getBotonList().get(1))) 
