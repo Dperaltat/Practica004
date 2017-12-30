@@ -84,10 +84,11 @@ private GestionDato gd;
                 this.VentActor.getModeloTabla().setDataVector(this.VentActor.getDatos(), this.VentActor.getEncabezado());
                 
                 
-               ae = new FileOutputStream("C:/carpetaPractica04/DatosActor.txt",true);
+                ae = new FileOutputStream("C:/carpetaPractica04/DatosActor.txt",true);
                 ObjectOutputStream escritura= new ObjectOutputStream(ae);
                 escritura.writeObject(a);
                 escritura.close();
+                
             } catch (FileNotFoundException ex) {
                 Logger.getLogger(EventoActor.class.getName()).log(Level.SEVERE, null, ex);
             } catch (IOException ex) {

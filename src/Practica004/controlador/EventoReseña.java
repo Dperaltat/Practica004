@@ -7,6 +7,8 @@ import Practica004.modelo.Usuario;
 import Practica004.vista.VentanaReseña;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.DataOutputStream;
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -54,8 +56,6 @@ public class EventoReseña implements ActionListener
     @Override
     public void actionPerformed(ActionEvent e) 
     {
-    
-         
         try
         {
             
@@ -101,7 +101,33 @@ public class EventoReseña implements ActionListener
                 Object[][] datoReseña = this.ventanaReseña.cargaDatosTabla(this.ventanaReseña.getGestionDato().getReseñaList().size(), 4);
                 this.ventanaReseña.setDatos(datoReseña);
                 this.ventanaReseña.getModeloTabla().setDataVector(this.ventanaReseña.getDatos(), this.ventanaReseña.getEncabezado());
-                  
+                
+                File ficheroReseña = new File("C:\\carpetaPractica04\\Reseña.txt");
+                
+                if (ficheroReseña.exists() == false)
+                {
+                    try 
+                    {
+                        ficheroReseña.createNewFile();
+
+                    } 
+                    catch(Exception ae) 
+                    {
+                        ae.printStackTrace();
+                    }                              
+                }
+                try
+                {
+                    FileOutputStream ae = new FileOutputStream("C:\\carpetaPractica04\\Reseña.txt",true);
+                    ObjectOutputStream ob = new ObjectOutputStream(ae);
+                    ob.writeObject(r);
+                    ob.close();
+                }
+                catch (IOException ex) 
+                {
+                    Logger.getLogger(EventoReseña.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                
             }
             else  if (e.getSource().equals(this.ventanaReseña.getBotonList().get(1))) 
             {
