@@ -45,9 +45,9 @@ public class EventoUsuario implements ActionListener {
                 String cedula = this.ventanaUsuario.getTxtList().get(4).getText();
                 int codigo = Integer.parseInt(this.ventanaUsuario.getTxtList().get(5).getText());
                 String email = this.ventanaUsuario.getTxtList().get(6).getText();
-
+                
                 Usuario u = new Usuario(nombre, sexo, edad, nacionalidad, cedula, codigo, email);
-
+      
                 int i = 0;
                 boolean ban = true;
 

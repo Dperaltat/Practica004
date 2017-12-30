@@ -1,6 +1,7 @@
 package Practica004.vista;
 
 import Practica004.controlador.GestionDato;
+import Practica004.controlador.BaseDatos;
 import Practica004.modelo.Actor;
 import Practica004.modelo.Reseña;
 import Practica004.modelo.Rol;
@@ -25,7 +26,10 @@ public class Principal
         GestionDato gD = new GestionDato(usuario,actor,rol,reseña, pelicula);
       
         VentanaPrincipal VentPri = new VentanaPrincipal (gD);
+        BaseDatos BD = new BaseDatos();
         
     }
+
+    
     
 }

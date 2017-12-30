@@ -11,12 +11,6 @@ import Practica004.modelo.Rol;
 import Practica004.vista.VentanaRol;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.ObjectOutputStream;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -50,8 +44,7 @@ public class EventoRol implements ActionListener
         if (e.getSource().equals(this.VentRol.getBotonList().get(0))) 
             {
                 try{
-                FileOutputStream ae = null;
-            try {
+             
                 int numActor = this.VentRol.getComboActor().getSelectedIndex();
                 this.actor = this.VentRol.getGestionDato().getActorList().get(numActor);
               
@@ -84,26 +77,16 @@ public class EventoRol implements ActionListener
                 Object[][] dato = this.VentRol.cargaDatosTabla(this.VentRol.getGestionDato().getRolList().size(), 3);
                 this.VentRol.setDatos(dato);
                 this.VentRol.getModeloTabla().setDataVector(this.VentRol.getDatos(), this.VentRol.getEncabezado());
-                ae = new FileOutputStream("C:/carpetaPractica04/DatosRol.txt",true);
-                ObjectOutputStream escritura= new ObjectOutputStream(ae);
-                escritura.writeObject(r);
-                escritura.close();
-            } catch (FileNotFoundException ex) {
-                Logger.getLogger(EventoRol.class.getName()).log(Level.SEVERE, null, ex);
-            } catch (IOException ex) {
-                Logger.getLogger(EventoRol.class.getName()).log(Level.SEVERE, null, ex);
-            } finally {
-                try {
-                    ae.close();
-                } catch (IOException ex) {
-                    Logger.getLogger(EventoRol.class.getName()).log(Level.SEVERE, null, ex);
-                }
-            }
-                }
-             catch(NullPointerException ae)
+              
+              
+                } catch(NullPointerException | NumberFormatException | ArrayIndexOutOfBoundsException ae)
             {
                  JOptionPane.showMessageDialog(null, "Datos Incorrectos");
             }
+            }
+          if (e.getSource().equals(this.VentRol.getBotonList().get(1))) 
+            {
+                this.VentRol.getTxtList().get(0).setText("");
             }
     }
 }

@@ -13,7 +13,7 @@ import Practica004.vista.VentanaRol;
 import Practica004.vista.VentanaUsuario;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.File;
+
 
 /**
  *
@@ -30,12 +30,6 @@ public class EventoVentana implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         
-        File directorio = new File("C:/carpetaPractica04");
-        System.out.print((directorio.getPath()));
-        if (!directorio.exists()) {
-            directorio.mkdir();
-        }
-
         if (e.getSource().equals(this.VentPri.getMenuItemList().get(0))) {
             System.err.println("Ventana Usuario");
             VentanaUsuario VenUs = new VentanaUsuario(this.VentPri.getGestionDato());

@@ -1,12 +1,17 @@
 
 package Practica004.modelo;
 
+import java.io.Serializable;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
 /**
  *
  * @author Daniel
  */
-public class Persona {
-    
+
+public class Persona implements Serializable {
+  
     private String nombre;
     private String sexo;
     private int edad;

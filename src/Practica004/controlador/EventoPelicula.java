@@ -10,7 +10,6 @@ import Practica004.vista.VentanaPelicula;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import javax.annotation.Resource;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
 

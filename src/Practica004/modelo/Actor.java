@@ -1,31 +1,39 @@
 
 package Practica004.modelo;
 
+import java.io.Serializable;
+
+
+
 /**
  *
  * @author Daniel
  */
-public class Actor implements java.io.Serializable
+
+public class Actor implements Serializable
 {
+     
     
-    private String Nombre;
+     
+    private String nombre;
     private String Cedula;
     private int nominaciones;
-    private int premios;
+    private  int premios;
 
-    public Actor(String Nombre, String Cedula, int nominaciones, int premios) {
-        this.Nombre = Nombre;
+    public Actor(String nombre, String Cedula, int nominaciones, int premios) {
+        this.nombre = nombre;
         this.Cedula = Cedula;
         this.nominaciones = nominaciones;
         this.premios = premios;
     }
 
+    
     public String getNombre() {
-        return Nombre;
+        return nombre;
     }
 
-    public void setNombre(String Nombre) {
-        this.Nombre = Nombre;
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
     public String getCedula() {
@@ -54,8 +62,16 @@ public class Actor implements java.io.Serializable
 
     @Override
     public String toString() {
-        return  Nombre ;
+        return  nombre ;
     }
+
+
+    
+
+
+    
+
+
 
    
 

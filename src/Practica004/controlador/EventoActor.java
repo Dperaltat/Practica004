@@ -9,14 +9,6 @@ import Practica004.modelo.Actor;
 import Practica004.vista.VentanaActor;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.DataOutputStream;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.ObjectOutputStream;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -28,7 +20,6 @@ import javax.swing.JOptionPane;
 public class EventoActor implements ActionListener
 {
 private VentanaActor VentActor;
-private GestionDato gd;
 
     public EventoActor(VentanaActor VentActor) {
         this.VentActor = VentActor;
@@ -51,8 +42,8 @@ private GestionDato gd;
             {
             
             try{
-                FileOutputStream ae = null;
-            try {
+               
+            
                 String nombre = this.VentActor.getTxtList().get(0).getText();
                 String cedula = this.VentActor.getTxtList().get(1).getText();
                 int nominacion = Integer.parseInt(this.VentActor.getTxtList().get(2).getText());
@@ -82,29 +73,9 @@ private GestionDato gd;
                 Object[][] dato = this.VentActor.cargaDatosTabla(this.VentActor.getGestionDato().getActorList().size(), 4);
                 this.VentActor.setDatos(dato);
                 this.VentActor.getModeloTabla().setDataVector(this.VentActor.getDatos(), this.VentActor.getEncabezado());
-                
-                
-                ae = new FileOutputStream("C:/carpetaPractica04/DatosActor.txt",true);
-                ObjectOutputStream escritura= new ObjectOutputStream(ae);
-                escritura.writeObject(a);
-                escritura.close();
-                
-            } catch (FileNotFoundException ex) {
-                Logger.getLogger(EventoActor.class.getName()).log(Level.SEVERE, null, ex);
-            } catch (IOException ex) {
-                Logger.getLogger(EventoActor.class.getName()).log(Level.SEVERE, null, ex);
-            } finally {
-                try {
-                    ae.close();
-                } catch (IOException ex) {
-                    Logger.getLogger(EventoActor.class.getName()).log(Level.SEVERE, null, ex);
-                }
+    
             }
-                
-
-                
-            }
-            catch(NullPointerException ae)
+            catch(NullPointerException | NumberFormatException ae)
             {
                  JOptionPane.showMessageDialog(null, "Datos Incorrectos.");
             }
@@ -114,6 +85,9 @@ private GestionDato gd;
             {
                 this.VentActor.getTxtList().get(0).setText("");
                 this.VentActor.getTxtList().get(1).setText("");
+                
+                 this.VentActor.getTxtList().get(2).setText("");
+                this.VentActor.getTxtList().get(3).setText("");
             }
     }
     

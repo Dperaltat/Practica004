@@ -12,7 +12,6 @@ import java.awt.FlowLayout;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JButton;
-import javax.swing.JComboBox;
 import javax.swing.JInternalFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -41,7 +40,7 @@ public class VentanaActor extends JInternalFrame
         this.gestionDato = gestionDato;
         this.iniciaComponente();
         this.setLocation(170, 50);
-        this.setSize(500, 450);
+        this.setSize(550, 450);
     }
     public void iniciaComponente() 
     {
@@ -51,8 +50,8 @@ public class VentanaActor extends JInternalFrame
         JPanel panel = new JPanel(new FlowLayout());
         
         this.etiList.add(new JLabel("Nombre:"));
-        this.etiList.add(new JLabel("Cedula:"));
-        this.etiList.add(new JLabel("Nominacion:"));
+        this.etiList.add(new JLabel("# Cedula:"));
+        this.etiList.add(new JLabel("# Nominacion:"));
         this.etiList.add(new JLabel("# Premios"));
         
         this.txtList.add(new JTextField(15));

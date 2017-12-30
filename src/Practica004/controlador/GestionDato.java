@@ -11,12 +11,9 @@ import Practica004.modelo.Rol;
 import Practica004.modelo.Pelicula;
 
 import Practica004.modelo.Usuario;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
+
 import java.util.List;
+
 
 /**
  *
@@ -24,11 +21,13 @@ import java.util.List;
  */
 public class GestionDato {
     
+ 
     private List<Usuario> usuarioList;
     private List<Actor> actorList;
     private List<Rol> rolList;
     private List<Reseña> reseñaList;
     private List<Pelicula> peliculaList;
+    
 
 
     public GestionDato(List<Usuario> usuarioList, List<Actor> actorList, List<Rol> rolList, List<Reseña> reseñaList, List<Pelicula> peliculaList) {
@@ -103,5 +102,6 @@ public class GestionDato {
     public boolean addPelicula(Pelicula pelicula) {
         return this.peliculaList.add(pelicula);
     }
-
+    
+   
 }

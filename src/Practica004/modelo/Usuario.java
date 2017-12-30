@@ -1,11 +1,17 @@
 package Practica004.modelo;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+
+
 /**
  *
  * @author Daniel
  */
-public class Usuario extends Persona {
 
+public class Usuario extends Persona {
+  
     private int codigo;
     private String id;
     private String email;

@@ -100,7 +100,7 @@ public class VentanaRol extends JInternalFrame
        String[] retorno = new String[this.gestionDato.getActorList().size()];
         int i=0;
         for(Actor a: this.gestionDato.getActorList()) {
-            retorno[i] = a.getNombre() ;
+            retorno[i] = a.getCedula() ;
             i++;
         }
         return retorno;
