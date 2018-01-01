@@ -1,25 +1,29 @@
 package Practica004.modelo;
 
+import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
-
+import javax.persistence.Entity;
+import javax.persistence.Id;
 
 /**
  *
  * @author Daniel
  */
+@Entity
+public class Usuario extends Persona implements Serializable {
 
-public class Usuario extends Persona {
-  
+    @Id
+    private long id;
     private int codigo;
-    private String id;
+    private String cedula;
     private String email;
 
-    public Usuario(String nombre, String sexo, int edad, String nacionalidad, String id, int codigo, String email) {
+    public Usuario(String nombre, String sexo, int edad, String nacionalidad, String cedula, int codigo, String email) {
         super(nombre, sexo, edad, nacionalidad);
         this.codigo = codigo;
-        this.id = id;
+        this.cedula = cedula;
         this.email = email;
     }
 
@@ -31,14 +35,13 @@ public class Usuario extends Persona {
         this.codigo = codigo;
     }
 
-    public String getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Long id) {
         this.id = id;
     }
-    
 
     public String getEmail() {
         return email;
@@ -48,4 +51,13 @@ public class Usuario extends Persona {
         this.email = email;
     }
 
+    public String getCedula() {
+        return cedula;
+    }
+
+    public void setCedula(String cedula) {
+        this.cedula = cedula;
+    }
+
 }
+
