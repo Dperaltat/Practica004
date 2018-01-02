@@ -77,8 +77,8 @@ public class EventoUsuario implements ActionListener {
                 }
 
                 if (ban == true) {
-                    this.ventanaUsuario.getGestionDato().addUsuario(u);
                     bD.insertarUsuario(u);
+                    this.ventanaUsuario.getGestionDato().addUsuario(u);
                     for (Usuario us : bD.leerUsuario()) {
                         System.out.println(u.toString());
                     }
@@ -104,7 +104,7 @@ public class EventoUsuario implements ActionListener {
             JDialog d = new JDialog();
             d.setTitle("Error");
             d.getContentPane().add(new JLabel("Ingrese correctamente la información el los casilleros"));
-            d.setSize(120, 100);
+            d.setSize(320, 100);
             d.setLocation(830, 400);
             d.setVisible(true);
 

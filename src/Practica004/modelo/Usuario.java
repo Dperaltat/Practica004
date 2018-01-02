@@ -91,8 +91,10 @@ public class Usuario implements Serializable {
     public void setNacionalidad(String nacionalidad) {
         this.nacionalidad = nacionalidad;
     }
-    
-    
 
+    @Override
+    public String toString() {
+        return "Usuario{" + "id=" + id + ", codigo=" + codigo + ", email=" + email + ", nombre=" + nombre + ", sexo=" + sexo + ", edad=" + edad + ", nacionalidad=" + nacionalidad + '}';
+    }
 }
 
