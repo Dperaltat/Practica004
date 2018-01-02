@@ -19,6 +19,7 @@ import javax.swing.JLabel;
 public class EventoUsuario implements ActionListener {
 
     private VentanaUsuario ventanaUsuario;
+    
 
     public EventoUsuario(VentanaUsuario ventanaUsuario) {
         this.ventanaUsuario = ventanaUsuario;
@@ -47,6 +48,10 @@ public class EventoUsuario implements ActionListener {
                 String email = this.ventanaUsuario.getTxtList().get(6).getText();
                 
                 Usuario u = new Usuario(nombre, sexo, edad, nacionalidad, cedula, codigo, email);
+                
+                BaseDatos bD = new BaseDatos();
+                
+                bD.insertarUsuario(u);
       
                 int i = 0;
                 boolean ban = true;

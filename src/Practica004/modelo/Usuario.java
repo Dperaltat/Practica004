@@ -4,24 +4,34 @@ import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
 
 /**
  *
  * @author Daniel
  */
 @Entity
-public class Usuario extends Persona implements Serializable {
+public class Usuario implements Serializable {
 
     @Id
-    private long id;
+    private Long id;
     private int codigo;
     private String cedula;
     private String email;
+    private String nombre;
+    private String sexo;
+    private int edad;
+    private String nacionalidad;
 
+    public Usuario() {
+        
+    }
+    
     public Usuario(String nombre, String sexo, int edad, String nacionalidad, String cedula, int codigo, String email) {
-        super(nombre, sexo, edad, nacionalidad);
+        
+        this.nombre = nombre;
+        this.sexo = sexo;
+        this.edad = edad;
+        this.nacionalidad = nacionalidad;
         this.codigo = codigo;
         this.cedula = cedula;
         this.email = email;
@@ -58,6 +68,40 @@ public class Usuario extends Persona implements Serializable {
     public void setCedula(String cedula) {
         this.cedula = cedula;
     }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getSexo() {
+        return sexo;
+    }
+
+    public void setSexo(String sexo) {
+        this.sexo = sexo;
+    }
+
+    public int getEdad() {
+        return edad;
+    }
+
+    public void setEdad(int edad) {
+        this.edad = edad;
+    }
+
+    public String getNacionalidad() {
+        return nacionalidad;
+    }
+
+    public void setNacionalidad(String nacionalidad) {
+        this.nacionalidad = nacionalidad;
+    }
+    
+    
 
 }
 
