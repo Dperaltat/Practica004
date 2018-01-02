@@ -7,6 +7,7 @@ package Practica004.controlador;
 
 import Practica004.modelo.Actor;
 import Practica004.modelo.Pelicula;
+import Practica004.modelo.Reseña;
 import Practica004.modelo.Rol;
 import Practica004.modelo.Usuario;
 import java.util.List;
@@ -99,5 +100,15 @@ public class BaseDatos
         return retorno;
     
     }
-
+    
+    public List<Reseña> leerReseña()
+    {
+        List<Reseña> retorno=null;
+        EntityManager em = emf.createEntityManager();
+        em.getTransaction().begin();
+        retorno=em.createQuery("SELECT p FROM Rol p ORDER BY p.id").getResultList();
+        em.getTransaction().commit();
+        return retorno;
+    
+    }
 }

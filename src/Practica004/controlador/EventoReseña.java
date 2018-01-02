@@ -15,10 +15,6 @@ import java.io.IOException;
 import java.io.ObjectOutputStream;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-/*import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
-*/
 import javax.swing.JDialog;
 import javax.swing.JLabel;
 
@@ -28,7 +24,6 @@ public class EventoReseña implements ActionListener
     private Usuario usuario;
     private Pelicula pelicula;
     private GestionDato gd;
-   //private EntityManagerFactory emf = Persistence.createEntityManagerFactory("Practica004PU");
     
     public EventoReseña(VentanaReseña ventanaReseña) {
         this.ventanaReseña = ventanaReseña;
@@ -46,13 +41,6 @@ public class EventoReseña implements ActionListener
     public void setGd(GestionDato gd) {
         this.gd = gd;
     }
-    /*public EntityManagerFactory getEmf() {
-        return emf;
-    }
-    public void setEmf(EntityManagerFactory emf) {
-        this.emf = emf;
-    }
-    */
     
     @Override
     public void actionPerformed(ActionEvent e) 
@@ -70,13 +58,9 @@ public class EventoReseña implements ActionListener
                 String comentario = this.ventanaReseña.getTxtList().get(1).getText();
                 
                 Reseña r = new Reseña(this.usuario, this.pelicula, calificacion,comentario);
-                /*
-                boolean retorno = false;
-                EntityManager em = this.emf.createEntityManager();
-                em.getTransaction().begin();
-                em.persist(r);
-                em.getTransaction().commit();              
-                */
+                
+                BaseDatos Bd = new BaseDatos();
+                
                 int i = 0;
                 boolean ban = true;
                 for (Reseña re : this.ventanaReseña.getGestionDato().getReseñaList()) 
