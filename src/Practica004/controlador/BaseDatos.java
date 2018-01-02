@@ -27,10 +27,12 @@ public class BaseDatos
         EntityManager em = emf.createEntityManager();
         em.getTransaction().begin();
         em.persist(p);
+        System.out.println("hgj");
         em.getTransaction().commit();
         retorno=true;
         return retorno;
     }
+      
       
        public List<Actor> leerPersona()
     {

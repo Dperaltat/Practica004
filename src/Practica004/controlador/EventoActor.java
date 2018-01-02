@@ -42,18 +42,17 @@ private VentanaActor VentActor;
             {
             
             try{
-               
-            
-                String nombre = this.VentActor.getTxtList().get(0).getText();
-                String cedula = this.VentActor.getTxtList().get(1).getText();
+                Long cedula = Long.parseLong(this.VentActor.getTxtList().get(0).getText());
+                String nombre = this.VentActor.getTxtList().get(1).getText();
                 int nominacion = Integer.parseInt(this.VentActor.getTxtList().get(2).getText());
                 int premios  = Integer.parseInt(this.VentActor.getTxtList().get(3).getText());
-                Actor a = new Actor(nombre,cedula, nominacion, premios);
+                Actor a = new Actor(cedula,nombre,nominacion,premios);
+                BaseDatos BD = new BaseDatos();
                 int i = 0;
                 boolean ban = true;
                 for (Actor ca : this.VentActor.getGestionDato().getActorList()) 
                 {
-                    if(a.getCedula().equals(this.VentActor.getGestionDato().getActorList().get(i).getCedula()) ) 
+                    if(a.getId().equals(this.VentActor.getGestionDato().getActorList().get(i).getId()) ) 
                     {
                         ban = false;
                         JDialog d = new JDialog();
@@ -69,11 +68,14 @@ private VentanaActor VentActor;
                 if (ban == true) 
                 {
                     this.VentActor.getGestionDato().addActor(a);
+                     BD.insertarPersona(a);
+                      for(Actor p:BD.leerPersona())
+            System.out.println(p.toString());
+                
                 }
                 Object[][] dato = this.VentActor.cargaDatosTabla(this.VentActor.getGestionDato().getActorList().size(), 4);
                 this.VentActor.setDatos(dato);
                 this.VentActor.getModeloTabla().setDataVector(this.VentActor.getDatos(), this.VentActor.getEncabezado());
-    
             }
             catch(NullPointerException | NumberFormatException ae)
             {

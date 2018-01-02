@@ -2,46 +2,42 @@
 package Practica004.modelo;
 
 import java.io.Serializable;
-
-
-
-/**
- *
- * @author Daniel
- */
-
+import javax.persistence.Entity;
+import javax.persistence.Id;
+@Entity
 public class Actor implements Serializable
 {
-     
-    
-     
+    @Id
+    private Long id;
     private String nombre;
-    private String Cedula;
     private int nominaciones;
     private  int premios;
 
-    public Actor(String nombre, String Cedula, int nominaciones, int premios) {
+    public Actor() {
+    }
+
+    public Actor(Long id, String nombre, int nominaciones, int premios) {
+        this.id = id;
         this.nombre = nombre;
-        this.Cedula = Cedula;
         this.nominaciones = nominaciones;
         this.premios = premios;
     }
+ 
 
-    
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
     public String getNombre() {
         return nombre;
     }
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
-    }
-
-    public String getCedula() {
-        return Cedula;
-    }
-
-    public void setCedula(String Cedula) {
-        this.Cedula = Cedula;
     }
 
     public int getNominaciones() {
@@ -62,7 +58,11 @@ public class Actor implements Serializable
 
     @Override
     public String toString() {
-        return  nombre ;
+        return "Actor{" + "id=" + id + ", nombre=" + nombre + ", nominaciones=" + nominaciones + ", premios=" + premios + '}';
+    }
+
+ 
+    
     }
 
 
@@ -76,4 +76,4 @@ public class Actor implements Serializable
    
 
     
-}
+

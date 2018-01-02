@@ -40,7 +40,7 @@ public class VentanaActor extends JInternalFrame
         this.gestionDato = gestionDato;
         this.iniciaComponente();
         this.setLocation(170, 50);
-        this.setSize(550, 450);
+        this.setSize(520, 450);
     }
     public void iniciaComponente() 
     {
@@ -49,8 +49,8 @@ public class VentanaActor extends JInternalFrame
         this.botonList= new ArrayList<JButton>();
         JPanel panel = new JPanel(new FlowLayout());
         
+        this.etiList.add(new JLabel("Cedula:"));
         this.etiList.add(new JLabel("Nombre:"));
-        this.etiList.add(new JLabel("# Cedula:"));
         this.etiList.add(new JLabel("# Nominacion:"));
         this.etiList.add(new JLabel("# Premios"));
         
@@ -63,9 +63,9 @@ public class VentanaActor extends JInternalFrame
         this.botonList.add(new JButton("Limpiar"));
         
         this.encabezado = new Object[4];               
-        this.encabezado[0] = "Nombre";
-        this.encabezado[1] = "Cedula";
-        this.encabezado[2] = "Nominaciones";
+        this.encabezado[0] = "Cedula";
+        this.encabezado[1] = "Nombre";
+        this.encabezado[2] = "# Nominaciones";
         this.encabezado[3] = "# Premios";
         
         this.datos = cargaDatosTabla(this.gestionDato.getActorList().size(),4);
@@ -97,8 +97,8 @@ public class VentanaActor extends JInternalFrame
         int i=0;
         for(Actor e:this.gestionDato.getActorList())
         {
-            retorno[i][0] = e.getNombre();
-            retorno[i][1] = e.getCedula();
+            retorno[i][0] = e.getId();
+            retorno[i][1] = e.getNombre();
             retorno[i][2] = e.getNominaciones();
             retorno[i][3] = e.getPremios();
             i++;
