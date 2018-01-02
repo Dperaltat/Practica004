@@ -2,14 +2,17 @@
 package Practica004.modelo;
 
 import java.io.Serializable;
+import javax.persistence.Entity;
+import javax.persistence.Id;
 
 
 /**
  *
  * @author Daniel
  */
+@Entity
 public class Pelicula implements Serializable{
-    
+    @Id
     private String nombre;
     private String genero;
     private int anio;

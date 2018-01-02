@@ -38,6 +38,7 @@ public class EventoPelicula implements ActionListener {
                 int entregas = Integer.parseInt(this.ventanaPelicula.getTxtList().get(3).getText());
 
                 Pelicula p = new Pelicula(nombre, genero, anio, entregas);
+                BaseDatos bD = new BaseDatos();
 
             //Control Dato Repetido:
                 int i = 0;
@@ -57,6 +58,8 @@ public class EventoPelicula implements ActionListener {
                 }
                 if (ban == true) {
                     this.ventanaPelicula.getGestionDato().addPelicula(p);
+                    bD.insertarPelicula(p);
+                    
                 }
 
                 Object[][] datoPelicula = this.ventanaPelicula.cargaDatosTabla(this.ventanaPelicula.getGestionDato().getPeliculaList().size(), 4);

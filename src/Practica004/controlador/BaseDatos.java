@@ -6,6 +6,7 @@
 package Practica004.controlador;
 
 import Practica004.modelo.Actor;
+import Practica004.modelo.Pelicula;
 import Practica004.modelo.Rol;
 import Practica004.modelo.Usuario;
 import java.util.List;
@@ -50,6 +51,17 @@ public class BaseDatos
         EntityManager em = emf.createEntityManager();
         em.getTransaction().begin();
         em.persist(u);
+        em.getTransaction().commit();
+        retorno=true;
+        return retorno;
+    }
+      
+      public boolean insertarPelicula(Pelicula p)
+    {
+        boolean retorno=false;
+        EntityManager em = emf.createEntityManager();
+        em.getTransaction().begin();
+        em.persist(p);
         em.getTransaction().commit();
         retorno=true;
         return retorno;
