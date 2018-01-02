@@ -19,7 +19,6 @@ import javax.swing.JLabel;
 public class EventoUsuario implements ActionListener {
 
     private VentanaUsuario ventanaUsuario;
-    
 
     public EventoUsuario(VentanaUsuario ventanaUsuario) {
         this.ventanaUsuario = ventanaUsuario;
@@ -46,13 +45,11 @@ public class EventoUsuario implements ActionListener {
                 Long id = Long.parseLong(this.ventanaUsuario.getTxtList().get(4).getText());
                 int codigo = Integer.parseInt(this.ventanaUsuario.getTxtList().get(5).getText());
                 String email = this.ventanaUsuario.getTxtList().get(6).getText();
-                
+
                 Usuario u = new Usuario(nombre, sexo, edad, nacionalidad, id, codigo, email);
-                
+
                 BaseDatos bD = new BaseDatos();
-                
-                bD.insertarUsuario(u);
-      
+
                 int i = 0;
                 boolean ban = true;
 
@@ -81,6 +78,10 @@ public class EventoUsuario implements ActionListener {
 
                 if (ban == true) {
                     this.ventanaUsuario.getGestionDato().addUsuario(u);
+                    bD.insertarUsuario(u);
+                    for (Usuario us : bD.leerUsuario()) {
+                        System.out.println(u.toString());
+                    }
                 }
 
                 Object[][] datoUsuario = this.ventanaUsuario.cargarDatosTabla(this.ventanaUsuario.getGestionDato().getUsuarioList().size(), 7);
