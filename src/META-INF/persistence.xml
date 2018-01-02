@@ -3,6 +3,7 @@
   <persistence-unit name="Practica004PU" transaction-type="RESOURCE_LOCAL">
     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
     <class>Practica004.modelo.Actor</class>
+    <class>Practica004.modelo.Rol</class>
     <class>Practica004.modelo.Usuario</class>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:derby://localhost:1527/sample"/>

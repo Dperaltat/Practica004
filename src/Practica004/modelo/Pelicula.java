@@ -8,7 +8,7 @@ import java.io.Serializable;
  *
  * @author Daniel
  */
-public class Pelicula implements java.io.Serializable{
+public class Pelicula implements Serializable{
     
     private String nombre;
     private String genero;

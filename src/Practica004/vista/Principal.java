@@ -26,7 +26,7 @@ public class Principal
         GestionDato gD = new GestionDato(usuario,actor,rol,reseña, pelicula);
       
         VentanaPrincipal VentPri = new VentanaPrincipal (gD);
-        BaseDatos BD = new BaseDatos();
+       // BaseDatos BD = new BaseDatos();
         
     }
 

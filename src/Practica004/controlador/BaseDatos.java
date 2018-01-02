@@ -6,6 +6,7 @@
 package Practica004.controlador;
 
 import Practica004.modelo.Actor;
+import Practica004.modelo.Rol;
 import Practica004.modelo.Usuario;
 import java.util.List;
 import javax.persistence.EntityManager;
@@ -23,6 +24,16 @@ public class BaseDatos
 
 
       public boolean insertarPersona(Actor p)
+    {
+        boolean retorno=false;
+        EntityManager em = emf.createEntityManager();
+        em.getTransaction().begin();
+        em.persist(p);
+        em.getTransaction().commit();
+        retorno=true;
+        return retorno;
+    }
+        public boolean insertarRol(Rol p)
     {
         boolean retorno=false;
         EntityManager em = emf.createEntityManager();
@@ -62,6 +73,16 @@ public class BaseDatos
         EntityManager em = emf.createEntityManager();
         em.getTransaction().begin();
         retorno=em.createQuery("SELECT p FROM Actor p ORDER BY p.id").getResultList();
+        em.getTransaction().commit();
+        return retorno;
+    
+    }
+         public List<Rol> leerRol()
+    {
+        List<Rol> retorno=null;
+        EntityManager em = emf.createEntityManager();
+        em.getTransaction().begin();
+        retorno=em.createQuery("SELECT p FROM Rol p ORDER BY p.id").getResultList();
         em.getTransaction().commit();
         return retorno;
     

@@ -6,9 +6,11 @@
 package Practica004.controlador;
 
 import Practica004.modelo.Actor;
+import Practica004.modelo.Rol;
 import Practica004.vista.VentanaActor;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Objects;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -52,7 +54,7 @@ private VentanaActor VentActor;
                 boolean ban = true;
                 for (Actor ca : this.VentActor.getGestionDato().getActorList()) 
                 {
-                    if(a.getId().equals(this.VentActor.getGestionDato().getActorList().get(i).getId()) ) 
+                    if(Objects.equals(a.getId(), this.VentActor.getGestionDato().getActorList().get(i).getId())) 
                     {
                         ban = false;
                         JDialog d = new JDialog();
@@ -63,14 +65,15 @@ private VentanaActor VentActor;
                         d.setVisible(true);
                         break;
                     }
+                   
                     i++;
                 }
+                
                 if (ban == true) 
                 {
                     this.VentActor.getGestionDato().addActor(a);
                      BD.insertarPersona(a);
-                      for(Actor p:BD.leerPersona())
-            System.out.println(p.toString());
+                   System.err.println("Actor Guardado");
                 
                 }
                 Object[][] dato = this.VentActor.cargaDatosTabla(this.VentActor.getGestionDato().getActorList().size(), 4);

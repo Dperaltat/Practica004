@@ -11,6 +11,7 @@ import Practica004.modelo.Rol;
 import Practica004.vista.VentanaRol;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javafx.geometry.Side;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -45,14 +46,19 @@ public class EventoRol implements ActionListener
             {
                 try{
              
+                Long id = Long.parseLong(this.VentRol.getTxtList().get(0).getText()); 
+                
                 int numActor = this.VentRol.getComboActor().getSelectedIndex();
                 this.actor = this.VentRol.getGestionDato().getActorList().get(numActor);
               
                 int numRol = this.VentRol.getComboPelicula().getSelectedIndex();
                 this.pelicula = this.VentRol.getGestionDato().getPeliculaList().get(numRol);
                 
-                String papel = this.VentRol.getTxtList().get(0).getText();
-                Rol r = new Rol(this.actor, papel, this.pelicula);
+                String papel = this.VentRol.getTxtList().get(1).getText();
+                Rol r = new Rol(id,this.actor, papel, this.pelicula);
+                
+                System.err.println(id +"+"+this.actor +"+"+papel +"+"+this.pelicula);
+                BaseDatos BD = new BaseDatos ();
                 int i = 0;
                 boolean ban = true;
                 for (Rol ca : this.VentRol.getGestionDato().getRolList()) 
@@ -73,8 +79,12 @@ public class EventoRol implements ActionListener
                 if (ban == true) 
                 {
                     this.VentRol.getGestionDato().addRol(r);
+                    BD.insertarRol(r);
+                    System.err.println("Rol Guardado");
+
+                    
                 }
-                Object[][] dato = this.VentRol.cargaDatosTabla(this.VentRol.getGestionDato().getRolList().size(), 3);
+                Object[][] dato = this.VentRol.cargaDatosTabla(this.VentRol.getGestionDato().getRolList().size(), 4);
                 this.VentRol.setDatos(dato);
                 this.VentRol.getModeloTabla().setDataVector(this.VentRol.getDatos(), this.VentRol.getEncabezado());
               

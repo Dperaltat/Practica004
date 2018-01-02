@@ -60,32 +60,44 @@ public class VentanaRol extends JInternalFrame
         this.comboActor = new JComboBox(this.cargaComboActor());//Falta agregar el combo
         this.comboPelicula = new JComboBox(this.cargaComboPelicula());
         
+        this.etiList.add(new JLabel("Codigo:"));
         this.etiList.add(new JLabel("Actor:"));
         this.etiList.add(new JLabel("Papel:"));
         this.etiList.add(new JLabel("Pelicula:"));
         
         this.txtList.add(new JTextField(15));
+        this.txtList.add(new JTextField(15));
         
         this.botonList.add(new JButton("Guardar"));
         this.botonList.add(new JButton("Limpiar"));
         
-        this.encabezado = new Object[3];               
-        this.encabezado[0] = "Actor";
-        this.encabezado[1] = "Papel";
-        this.encabezado[2] = "Pelicula";
+        this.encabezado = new Object[4];               
+        this.encabezado[0] = "Codigo";
+        this.encabezado[1] = "Actor ";
+        this.encabezado[2] = "Papel";
+         this.encabezado[3] = "Pelicula";
         
-        this.datos = cargaDatosTabla(this.gestionDato.getRolList().size(),3);
+        
+        this.datos = cargaDatosTabla(this.gestionDato.getRolList().size(),4);
         
         this.modeloTabla = new DefaultTableModel(this.datos, this.encabezado);        
         this.tabla = new JTable(this.modeloTabla);
         this.scroll = new JScrollPane(this.tabla);
+       
+        
         
         panel.add(this.etiList.get(0));
-       panel.add(this.comboActor);
+       panel.add(this.txtList.get(0));
+       
         panel.add(this.etiList.get(1));
-        panel.add(this.txtList.get(0));
-        panel.add(this.etiList.get(2));
+        panel.add(this.comboActor);
+        
+       panel.add(this.etiList.get(2));
+       panel.add(this.txtList.get(1));
+       
+        panel.add(this.etiList.get(3));
         panel.add(this.comboPelicula);
+        
         panel.add(this.botonList.get(0));
         panel.add(this.botonList.get(1));
         panel.add(this.scroll);
@@ -121,9 +133,10 @@ public class VentanaRol extends JInternalFrame
         int i=0;
         for(Rol e:this.gestionDato.getRolList())
         {
-            retorno[i][0] = e.getActor();
-            retorno[i][1] = e.getPapel();
-            retorno[i][2] = e.getPelicula();
+            retorno[i][0] = e.getId();
+            retorno[i][1] = e.getActor();
+            retorno[i][2] = e.getPapel();
+            retorno[i][3] = e.getPelicula();
             i++;
         }        
         return retorno;

@@ -1,24 +1,40 @@
 
 package Practica004.modelo;
 
+import java.io.Serializable;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
 /**
  *
  * @author Daniel
  */
-public class Rol implements java.io.Serializable
+@Entity
+public class Rol implements Serializable
 {
-    
+     @Id
+    private Long id;
     private Actor actor;
     private String papel;
     private Pelicula pelicula; 
 
-    public Rol(Actor actor, String papel, Pelicula pelicula) {
+    public Rol() {
+    }
+
+    public Rol(Long id, Actor actor, String papel, Pelicula pelicula) {
+        this.id = id;
         this.actor = actor;
         this.papel = papel;
         this.pelicula = pelicula;
     }
-    
-    
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public Actor getActor() {
         return actor;
@@ -46,7 +62,14 @@ public class Rol implements java.io.Serializable
 
     @Override
     public String toString() {
-        return "Rol{" + "actor=" + actor + ", papel=" + papel + ", pelicula=" + pelicula + '}';
+        return "Rol{" + "id=" + id + ", actor=" + actor + ", papel=" + papel + ", pelicula=" + pelicula + '}';
     }
+   
+    
+  
+    
+    
+
+    
     
 }
