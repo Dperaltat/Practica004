@@ -122,7 +122,7 @@ public class VentanaUsuario extends JInternalFrame {
             retorno[i][1] = u.getSexo();
             retorno[i][2] = u.getEdad();
             retorno[i][3] = u.getNacionalidad();
-            retorno[i][4] = u.getCedula();
+            retorno[i][4] = u.getId();
             retorno[i][5] = u.getCodigo();
             retorno[i][6] = u.getEmail();
             i++;

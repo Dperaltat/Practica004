@@ -15,7 +15,6 @@ public class Usuario implements Serializable {
     @Id
     private Long id;
     private int codigo;
-    private String cedula;
     private String email;
     private String nombre;
     private String sexo;
@@ -26,14 +25,14 @@ public class Usuario implements Serializable {
         
     }
     
-    public Usuario(String nombre, String sexo, int edad, String nacionalidad, String cedula, int codigo, String email) {
+    public Usuario(String nombre, String sexo, int edad, String nacionalidad, Long id, int codigo, String email) {
         
         this.nombre = nombre;
         this.sexo = sexo;
         this.edad = edad;
         this.nacionalidad = nacionalidad;
         this.codigo = codigo;
-        this.cedula = cedula;
+        this.id = id;
         this.email = email;
     }
 
@@ -59,14 +58,6 @@ public class Usuario implements Serializable {
 
     public void setEmail(String email) {
         this.email = email;
-    }
-
-    public String getCedula() {
-        return cedula;
-    }
-
-    public void setCedula(String cedula) {
-        this.cedula = cedula;
     }
 
     public String getNombre() {

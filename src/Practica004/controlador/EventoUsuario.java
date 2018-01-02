@@ -43,11 +43,11 @@ public class EventoUsuario implements ActionListener {
                 String sexo = this.ventanaUsuario.getTxtList().get(1).getText();
                 int edad = Integer.parseInt(this.ventanaUsuario.getTxtList().get(2).getText());
                 String nacionalidad = this.ventanaUsuario.getTxtList().get(3).getText();
-                String cedula = this.ventanaUsuario.getTxtList().get(4).getText();
+                Long id = Long.parseLong(this.ventanaUsuario.getTxtList().get(4).getText());
                 int codigo = Integer.parseInt(this.ventanaUsuario.getTxtList().get(5).getText());
                 String email = this.ventanaUsuario.getTxtList().get(6).getText();
                 
-                Usuario u = new Usuario(nombre, sexo, edad, nacionalidad, cedula, codigo, email);
+                Usuario u = new Usuario(nombre, sexo, edad, nacionalidad, id, codigo, email);
                 
                 BaseDatos bD = new BaseDatos();
                 
