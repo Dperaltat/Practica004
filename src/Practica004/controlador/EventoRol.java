@@ -68,7 +68,7 @@ public class EventoRol implements ActionListener
                         ban = false;
                         JDialog d = new JDialog();
                         d.setTitle("Error");
-                        d.getContentPane().add(new JLabel("Ya existe"));
+                        d.getContentPane().add(new JLabel("Ya existe."));
                         d.setSize(120, 100);
                         d.setLocation(830, 400);
                         d.setVisible(true);
@@ -80,7 +80,8 @@ public class EventoRol implements ActionListener
                 {
                     this.VentRol.getGestionDato().addRol(r);
                     BD.insertarRol(r);
-                    System.err.println("Rol Guardado");
+                    
+                    System.err.println("Rol Guardado.");
 
                     
                 }
