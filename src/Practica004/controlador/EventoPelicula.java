@@ -59,6 +59,7 @@ public class EventoPelicula implements ActionListener {
                 if (ban == true) {
                     this.ventanaPelicula.getGestionDato().addPelicula(p);
                     bD.insertarPelicula(p);
+                    System.err.println("Pelicula Guardada");
                     
                 }
 

@@ -79,9 +79,7 @@ public class EventoUsuario implements ActionListener {
                 if (ban == true) {
                     bD.insertarUsuario(u);
                     this.ventanaUsuario.getGestionDato().addUsuario(u);
-                    for (Usuario us : bD.leerUsuario()) {
-                        System.out.println(u.toString());
-                    }
+                    System.err.println("Usuario Guardado");
                 }
 
                 Object[][] datoUsuario = this.ventanaUsuario.cargarDatosTabla(this.ventanaUsuario.getGestionDato().getUsuarioList().size(), 7);

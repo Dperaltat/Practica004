@@ -83,7 +83,7 @@ public class EventoRol implements ActionListener
                     BD.insertarRol(r);//cosas
                     
                     System.err.println("Rol Guardado.");
-                       System.err.println("Rol Guardado.");
+                    System.err.println("Rol Guardado.");
 
                     
                 }

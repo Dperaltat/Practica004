@@ -84,6 +84,7 @@ public class EventoReseña implements ActionListener
                 {
                     this.ventanaReseña.getGestionDato().addReseña(r);
                     Bd.insertarReseña(r);
+                    System.err.println("Reseña Guardada");
                 }
                 
                 Object[][] datoReseña = this.ventanaReseña.cargaDatosTabla(this.ventanaReseña.getGestionDato().getReseñaList().size(), 5);

@@ -72,8 +72,8 @@ private VentanaActor VentActor;
                 if (ban == true) 
                 {
                     this.VentActor.getGestionDato().addActor(a);
-                     BD.insertarPersona(a);
-                   System.err.println("Actor Guardado");
+                    BD.insertarPersona(a);
+                    System.err.println("Actor Guardado");
                 
                 }
                 Object[][] dato = this.VentActor.cargaDatosTabla(this.VentActor.getGestionDato().getActorList().size(), 4);
