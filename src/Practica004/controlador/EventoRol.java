@@ -79,9 +79,11 @@ public class EventoRol implements ActionListener
                 if (ban == true) 
                 {
                     this.VentRol.getGestionDato().addRol(r);
-                    BD.insertarRol(r);
+                    
+                    BD.insertarRol(r);//cosas
                     
                     System.err.println("Rol Guardado.");
+                       System.err.println("Rol Guardado.");
 
                     
                 }
