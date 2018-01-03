@@ -111,4 +111,15 @@ public class BaseDatos
         return retorno;
     
     }
+    
+        public List<Pelicula> leerPelicula()
+    {
+        List<Pelicula> retorno=null;
+        EntityManager em = emf.createEntityManager();
+        em.getTransaction().begin();
+        retorno=em.createQuery("SELECT p FROM Rol p ORDER BY p.id").getResultList();
+        em.getTransaction().commit();
+        return retorno;
+    
+    }
 }
