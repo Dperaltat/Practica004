@@ -67,6 +67,16 @@ public class BaseDatos
         retorno=true;
         return retorno;
     }
+      public boolean insertarReseña (Reseña p)
+    {
+        boolean retorno=false;
+        EntityManager em = emf.createEntityManager();
+        em.getTransaction().begin();
+        em.persist(p);
+        em.getTransaction().commit();
+        retorno=true;
+        return retorno;
+    }
       
       
        public List<Actor> leerPersona()
@@ -85,7 +95,7 @@ public class BaseDatos
         List<Usuario> retorno=null;
         EntityManager em = emf.createEntityManager();
         em.getTransaction().begin();
-        retorno=em.createQuery("SELECT p FROM Actor p ORDER BY p.id").getResultList();
+        retorno=em.createQuery("SELECT p FROM Usuario p ORDER BY p.id").getResultList();
         em.getTransaction().commit();
         return retorno;
     
@@ -106,7 +116,7 @@ public class BaseDatos
         List<Reseña> retorno=null;
         EntityManager em = emf.createEntityManager();
         em.getTransaction().begin();
-        retorno=em.createQuery("SELECT p FROM Rol p ORDER BY p.id").getResultList();
+        retorno=em.createQuery("SELECT p FROM Reseña p ORDER BY p.id").getResultList();
         em.getTransaction().commit();
         return retorno;
     

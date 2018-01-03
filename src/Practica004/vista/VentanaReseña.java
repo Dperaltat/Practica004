@@ -128,20 +128,25 @@ public class VentanaReseña extends JInternalFrame
         this.etiList.add(new JLabel("Pelicula"));
         this.etiList.add(new JLabel("Calificacion"));
         this.etiList.add(new JLabel("Comentario"));
+        this.etiList.add(new JLabel("Codigo"));
+        
         
         this.txtList.add(new JTextField(10));
-        this.txtList.add(new JTextField(35)); 
+        this.txtList.add(new JTextField(35));
+        this.txtList.add(new JTextField(10));
+        
         
         this.botonList.add(new JButton("Guardar"));
         this.botonList.add(new JButton("Limpiar"));
         
-        this.encabezado = new Object[4];               
+        this.encabezado = new Object[5];               
         this.encabezado[0] = "Usuario";
         this.encabezado[1] = "Pelicula";
         this.encabezado[2] = "Calificacion";
         this.encabezado[3] = "Comentario";
+         this.encabezado[4] = "Comentario";
         
-        this.datos = cargaDatosTabla(this.gestionDato.getReseñaList().size(),4);
+        this.datos = cargaDatosTabla(this.gestionDato.getReseñaList().size(),5);
         
         this.modeloTabla = new DefaultTableModel(this.datos, this.encabezado);        
         this.tabla = new JTable(this.modeloTabla);
@@ -155,6 +160,11 @@ public class VentanaReseña extends JInternalFrame
         panel.add(this.txtList.get(0));
         panel.add(this.etiList.get(3));
         panel.add(this.txtList.get(1));
+        
+        
+        panel.add(this.etiList.get(4));
+        panel.add(this.txtList.get(2));
+        
         panel.add(this.botonList.get(0));
         panel.add(this.botonList.get(1));
         panel.add(this.scroll);
@@ -199,6 +209,7 @@ public class VentanaReseña extends JInternalFrame
             retorno[i][1] = res.getPelicula().getNombre();
             retorno[i][2] = res.getCalificacion();
             retorno[i][3] = res.getComentario();
+            retorno[i][4] = res.getId();
             i++;
         }        
         return retorno;

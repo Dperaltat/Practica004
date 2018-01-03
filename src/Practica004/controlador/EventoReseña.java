@@ -57,7 +57,9 @@ public class EventoReseña implements ActionListener
                 int calificacion = Integer.parseInt(this.ventanaReseña.getTxtList().get(0).getText());
                 String comentario = this.ventanaReseña.getTxtList().get(1).getText();
                 
-                Reseña r = new Reseña(this.usuario, this.pelicula, calificacion,comentario);
+                Long id = Long.parseLong(this.ventanaReseña.getTxtList().get(2).getText());
+                
+                Reseña r = new Reseña(id,this.usuario, this.pelicula, calificacion,comentario);
                 
                 BaseDatos Bd = new BaseDatos();
                 
@@ -81,9 +83,10 @@ public class EventoReseña implements ActionListener
                 if (ban == true) 
                 {
                     this.ventanaReseña.getGestionDato().addReseña(r);
+                    Bd.insertarReseña(r);
                 }
                 
-                Object[][] datoReseña = this.ventanaReseña.cargaDatosTabla(this.ventanaReseña.getGestionDato().getReseñaList().size(), 4);
+                Object[][] datoReseña = this.ventanaReseña.cargaDatosTabla(this.ventanaReseña.getGestionDato().getReseñaList().size(), 5);
                 this.ventanaReseña.setDatos(datoReseña);
                 this.ventanaReseña.getModeloTabla().setDataVector(this.ventanaReseña.getDatos(), this.ventanaReseña.getEncabezado());
                 
